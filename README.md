@@ -1,2 +1,3 @@
-# supper_clean_projetoPOO
-Repositório para entrega e andamento de projeto de Programação orientada a objeto. Linguagem: Java.
+# Supper Clean
+Projeto do 3° Semestre de Análise e Desenvolvimento de Sistemas da turma A.
+Feito por Diego Mizikami e Tuany Cristo.
