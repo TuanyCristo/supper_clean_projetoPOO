@@ -5,6 +5,8 @@ public class Empresa extends Usuario {
     private String cnpj;
 
 
+
+
     public Empresa() {
 
     }
@@ -33,6 +35,4 @@ public class Empresa extends Usuario {
 
 
     
-    
-
-}
+    }

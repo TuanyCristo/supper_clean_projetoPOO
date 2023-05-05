@@ -1,15 +1,17 @@
 package view;
 
-import usuario.*;
+import java.sql.SQLException;
+
+import usuario.controller.ClienteController;
 
 public class App {
-    public static void main(String[] args) {
-        Empresa a = new Empresa("tuany@tuany", "tuany", "123", "0000");
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-        String v, b;
-        v = "tuany@tuany";
-        b = "tuany";
-        System.out.println(a.validaLogin(v, b));
+        ClienteController c = new ClienteController();
 
+        c.cadastrarCliente("null", "457845854", "jajja@jajaj", "1234");
     }
+
+           
+
 }
