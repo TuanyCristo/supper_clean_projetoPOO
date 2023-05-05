@@ -64,4 +64,33 @@ public class ClienteController {
         return clientes;
     }
 
+    public Cliente buscar(String cpf) {
+
+        Cliente cliente = null;
+        try {
+            cliente = clienteDAO.buscarCpf(cpf);
+            if (cliente == null) {
+                throw new SQLException("Cliente não encontrado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar cliente: " + e.getMessage());
+        }
+        return cliente;
+    }
+
+    public void imprimirCliente(String cpf) {
+        try {
+            Cliente cliente = buscar(cpf);
+            if (cliente != null) {
+                System.out.println("Nome: " + cliente.getNome());
+                System.out.println("CPF/CNPJ: " + cliente.getCpf());
+                System.out.println("E-mail: " + cliente.getEmail());
+            } else {
+                System.out.println("Cliente não encontrado.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar cliente no banco de dados.");
+            e.printStackTrace();
+        }
+    }
 }

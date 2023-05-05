@@ -79,12 +79,32 @@ public class ClienteDAO implements UsuarioDAO {
         rs.close();
         stmt.close();
 
-        // List<Cliente> clientes = new ArrayList<>();
-        // for (Object o : objeto) {
-        // clientes.add((Cliente) o);
-
         return clientes;
 
+    }
+
+    public Cliente buscarCpf(String cpf) throws SQLException {
+        String sql = "SELECT nome, cpf_cnpj, email, FROM tb_usuario WHERE cpf_cnpj = ?";
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, cpf);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            String nome = rs.getString("nome");
+            String cpf_cnpj = rs.getString("cpf_cnpj");
+            String email = rs.getString("email");
+            Cliente cliente = new Cliente(nome, cpf_cnpj, email, "");
+
+            rs.close();
+            stmt.close();
+
+            return cliente;
+
+        } else {
+            rs.close();
+            stmt.close();
+            return null;
+        }
     }
 
 }
